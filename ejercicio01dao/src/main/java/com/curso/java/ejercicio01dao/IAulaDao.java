@@ -1,4 +1,4 @@
-package ejercicio01dao;
+package com.curso.java.ejercicio01dao;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ public interface IAulaDao {
 	Collection<Aula> getAulas();
 	void updateAula(Aula aula);
 	void deleteAula(String nombreAula);
-	void createAula(Aula aula);
+	void createAula(Aula aula) throws Exception;
 	Aula getAula(String nombreAula);
 	
 }

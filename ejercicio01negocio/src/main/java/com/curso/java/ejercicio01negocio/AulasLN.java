@@ -1,4 +1,4 @@
-package ejercicio01negocio;
+package com.curso.java.ejercicio01negocio;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,14 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.curso.java.ejercicio01dao.IAulaDao;
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
-import ejercicio01dao.IAulaDao;
-
-public class AulasLN {
+public class AulasLN implements IAulasLNRRHH{
 
 	
 	private IAulaDao aulaDao;
@@ -22,11 +21,13 @@ public class AulasLN {
 	public AulasLN(IAulaDao aulaDao) {
 		this.aulaDao = aulaDao;
 	}
-
-	public Aula nuevoAula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
+	
+	public Collection<Aula> getAulas(){
+		return aulaDao.getAulas();
+	}
+	public Aula nuevoAula(Aula aula) throws Exception {
 		aulaDao.createAula(aula);
-		return aulaDao.getAula(nombre);
+		return aulaDao.getAula(aula.getNombre());
 	}
 	
 	/**
@@ -37,7 +38,7 @@ public class AulasLN {
 	private Collection<Alumno> getAlumnosDeAula(String nombre){
 		List<Alumno>lista = new ArrayList<Alumno>();
 		for(PuestoDeTrabajo puesto: aulaDao.getAula(nombre).getPuestosDeAlumnos()) {
-			if (puesto.getPersona() instanceof Alumno) {
+			if (puesto.getPersona() != null && puesto.getPersona() instanceof Alumno) {
 				lista.add((Alumno)puesto.getPersona());
 			}
 			
@@ -100,16 +101,18 @@ public class AulasLN {
 	
 	public void asignarAlumnoAAula(String nombreAula, Alumno alumno) {
 		
+		Set<PuestoDeTrabajo> puestos=null;
 		Aula aula = aulaDao.getAula(nombreAula);
-		Set<PuestoDeTrabajo> puestos = aula.getPuestosDeAlumnos();
+		//System.out.println(nombreAula);
+		
+		puestos = aula.getPuestosDeAlumnos();
 		
 		for(PuestoDeTrabajo p: puestos){
 			if(p.getPersona()==null) {
 				p.setPersona(alumno);
+				return;
 			}
-			return;
 		}
-		throw new NullPointerException("No se ha podido añadir al alumno, no hay sitio.");
 	}
 	
 	public void eliminarAula(String nombreAula) {

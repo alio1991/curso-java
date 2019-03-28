@@ -1,4 +1,4 @@
-package ejercicio01dao;
+package com.curso.java.ejercicio01dao;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,13 +29,13 @@ public class ListDAO implements IAulaDao {
 		throw new NullPointerException("El elemento no se encuentra guardado, no ha sido posible eliminarlo.");
 	}
 	
-	public void createAula(Aula aula) {
-		Aula aux = buscaAula(aula.getNombre());
-		if(aux==null) {
-			aulas.add(aux);
+	public void createAula(Aula aula) throws Exception {
+		
+		if(!aulas.contains(aula)) {
+			aulas.add(aula);
 			return;
 		}
-		throw new NullPointerException("Ese aula ya existe.");
+		throw new Exception("Ese aula ya existe.");
 	}
 	
 	public Aula getAula(String nombreAula) {
@@ -43,13 +43,15 @@ public class ListDAO implements IAulaDao {
 		if(aux!=null) {
 			return aux;
 		}
-		throw new NullPointerException("Ese aula ya existe.");
+		return null;
 	}
 	
 	private Aula buscaAula(String nombre) {
-		for(Aula a: aulas) {
-			if(a.getNombre()==nombre) {
-				return a;
+		if(!aulas.isEmpty()) {
+			for(Aula a: aulas) {
+				if(a.getNombre()==nombre) {
+					return a;
+				}
 			}
 		}
 		return null;

@@ -1,9 +1,8 @@
-package ejercicio01dao;
+package com.curso.java.ejercicio01dao;
 
-import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -12,7 +11,7 @@ public class MapDAO implements IAulaDao{
 	Map<String,Aula>aulas = new HashMap<String,Aula>();
 	
 	public Collection<Aula> getAulas(){
-		return mapToCollection();
+		return aulas.values();
 	}
 	
 	public void updateAula(Aula aula) {
@@ -43,13 +42,5 @@ public class MapDAO implements IAulaDao{
 		return aulas.get(nombreAula);
 	}
 	
-	
-	private Collection<Aula> mapToCollection(){
-		List<Aula>nuevo = new ArrayList<Aula>();
-		for(Aula aula: aulas.values()) {
-			nuevo.add(aula);
-		}
-		return nuevo;
-	}
 	
 }
