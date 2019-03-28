@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="listaDePeliculas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>El señor de los Arillos</value>
+				<value>La casa manca</value>
+				<value>Multicentipad</value>
+				<value>El retorno de Heidi</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="libro" class="ejemplo05beans.beans5.Libro">
+		<property name="titulo" value="Mr Bean"/>
+		<property name="autor" value="Mister Bean"/>
+	</bean>
+	
+	<bean id="coleccionDeColores" class="java.util.HashSet">
+		<constructor-arg>
+			<set>
+				<value>ROJO</value>
+				<value>VERDE</value>
+				<value>AZUL</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	<bean id="mapaDeLibros" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="ejemplo05beans.beans5.Libro">
+				<entry key="El Señor de los Anillos" value-ref="libro"/>
+				<entry key="Luisito" value-ref="libro"/>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

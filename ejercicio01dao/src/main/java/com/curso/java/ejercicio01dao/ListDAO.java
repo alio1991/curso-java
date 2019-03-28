@@ -1,13 +1,12 @@
 package com.curso.java.ejercicio01dao;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class ListDAO implements IAulaDao {
-	List<Aula>aulas = new ArrayList<Aula>();
+	private List<Aula>aulas;
 	
 	public Collection<Aula> getAulas(){
 		return aulas;
@@ -57,5 +56,9 @@ public class ListDAO implements IAulaDao {
 		return null;
 	}
 
-
+	public void setAulas(List<Aula> aulas) {
+		this.aulas = aulas;
+		//System.out.println(aulas.getClass());
+	}
+	
 }

@@ -3,8 +3,5 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="morcillaDeLeon" class="ejemplo05beans.beans1.MorcillaDeLeon" scope="singleton">
-		<property name="sabor" value="latino"/>
-		<property name="color" value="RIQUISIMO"/>
-	</bean>
+
 </beans>

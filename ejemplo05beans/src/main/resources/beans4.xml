@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="toyotaYaris" class="ejemplo05beans.beans4.CocheConConstructor" scope="singleton">
+		<constructor-arg name="marca" value="Toyota"/>
+		<constructor-arg name="modelo" value="Yaris"/>
+		<constructor-arg name="plazas" value="5"/>
+		<constructor-arg name="motor" ref="motorHibrido"/>
+	</bean>
+	<bean id="motorHibrido" class="ejemplo05beans.beans4.MotorConConstructor" scope="singleton">
+		<constructor-arg name="caballosVapor" value="100"/>
+		<constructor-arg name="tipoDeMotor" value="Hibrido"/>
+	</bean>
+	
+	<bean id="audiA4" class="ejemplo05beans.beans4.CocheConConstructor" scope="singleton" >
+		<constructor-arg index="0" name="marca" value="Audi"/>
+		<constructor-arg index="1" name="modelo" value="A4"/>
+		<constructor-arg index="2" name="plazas" value="5"/>
+		<constructor-arg index="3" name="motor">
+			<bean class="ejemplo05beans.beans4.MotorConConstructor">
+				<constructor-arg name="caballosVapor" value="150"/>
+				<constructor-arg name="tipoDeMotor" value="Diesel"/>
+			</bean>
+		</constructor-arg>
+	</bean>
+
+</beans>

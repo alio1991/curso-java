@@ -2,13 +2,12 @@ package com.curso.java.ejercicio01dao;
 
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class MapDAO implements IAulaDao{
-	Map<String,Aula>aulas = new HashMap<String,Aula>();
+	private Map<String,Aula>aulas;
 	
 	public Collection<Aula> getAulas(){
 		return aulas.values();
@@ -21,6 +20,10 @@ public class MapDAO implements IAulaDao{
 		}
 	}
 	
+	public void setAulas(Map<String, Aula> aulas) {
+		this.aulas = aulas;
+	}
+
 	public void deleteAula(String nombreAula) {
 		if(aulas.containsKey(nombreAula)) {
 			aulas.remove(nombreAula);

@@ -4,17 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.curso.ejercicio</groupId>
 	<artifactId>ejercicio01negocio</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
 			<groupId>com.curso.java</groupId>
 			<artifactId>ejercicio01dao</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.curso.java</groupId>
-			<artifactId>ejercicio01dao</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
