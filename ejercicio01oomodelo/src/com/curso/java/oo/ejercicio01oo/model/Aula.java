@@ -3,7 +3,10 @@ package com.curso.java.oo.ejercicio01oo.model;
 import java.io.Serializable;
 import java.util.Set;
 
-//@Component(value = "El Aula")
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+//@Component("Aula")
 //@Scope(value = "prototype")
 public class Aula implements Serializable {
 	private static final long serialVersionUID = 7504501822267907447L;

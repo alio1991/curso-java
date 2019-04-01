@@ -1,5 +1,9 @@
 package com.curso.java.ejercicio01negocio;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 
 import java.util.Collection;
@@ -8,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -37,6 +43,7 @@ public class AulasLN implements IAulasLNRRHH {
 		return aulaDao.getAulas();
 	}
 
+	
 	public Aula nuevoAula(Aula aula) throws Exception {
 		aulaDao.createAula(aula);
 		return aulaDao.getAula(aula.getNombre());

@@ -1,0 +1,11 @@
+body{
+	padding:20px;
+	margin:20px 60px;
+	font-family:Arial;
+	font-size: 18px;
+	background-color:red;
+}
+
+p{
+	color: #00ff00
+}
