@@ -1,14 +1,62 @@
 package com.curso.java.oo.ejercicio01oo.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Aula {
-	
+//@Component(value = "El Aula")
+//@Scope(value = "prototype")
+public class Aula implements Serializable {
+	private static final long serialVersionUID = 7504501822267907447L;
+	//@Value("AulaXX")
 	private String nombre;
-	private boolean proyector;
-	private boolean pizarra;
+	//@Value("true")
+	private Boolean proyector;
+	//@Value("true")
+	private Boolean pizarra;
 	private PuestoDeTrabajo puestoDelProfesor;
+	//@Autowired
+	//@Qualifier("puestosDeAlumnos")
 	private Set<PuestoDeTrabajo> puestosDeAlumnos;
+
+	public Aula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
+		super();
+		this.nombre = nombre;
+		this.proyector = proyector;
+		this.pizarra = pizarra;
+		this.puestosDeAlumnos = puestosDeAlumnos;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Boolean isProyector() {
+		return proyector;
+	}
+	public void setProyector(boolean proyector) {
+		this.proyector = proyector;
+	}
+	public Boolean isPizarra() {
+		return pizarra;
+	}
+	public void setPizarra(boolean pizarra) {
+		this.pizarra = pizarra;
+	}
+	public PuestoDeTrabajo getPuestoDelProfesor() {
+		return puestoDelProfesor;
+	}
+	public void setPuestoDelProfesor(PuestoDeTrabajo puestoDelProfesor) {
+		this.puestoDelProfesor = puestoDelProfesor;
+	}
+	public Set<PuestoDeTrabajo> getPuestosDeAlumnos() {
+		return puestosDeAlumnos;
+	}
+	public void setPuestosDeAlumnos(Set<PuestoDeTrabajo> puestosDeAlumnos) {
+		this.puestosDeAlumnos = puestosDeAlumnos;
+	}
+
 	
 	@Override
 	public int hashCode() {
@@ -34,44 +82,4 @@ public class Aula {
 			return false;
 		return true;
 	}
-
-	public Aula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		super();
-		this.nombre = nombre;
-		this.proyector = proyector;
-		this.pizarra = pizarra;
-		this.puestosDeAlumnos = puestosDeAlumnos;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public boolean isProyector() {
-		return proyector;
-	}
-	public void setProyector(boolean proyector) {
-		this.proyector = proyector;
-	}
-	public boolean isPizarra() {
-		return pizarra;
-	}
-	public void setPizarra(boolean pizarra) {
-		this.pizarra = pizarra;
-	}
-	public PuestoDeTrabajo getPuestoDelProfesor() {
-		return puestoDelProfesor;
-	}
-	public void setPuestoDelProfesor(PuestoDeTrabajo puestoDelProfesor) {
-		this.puestoDelProfesor = puestoDelProfesor;
-	}
-	public Set<PuestoDeTrabajo> getPuestosDeAlumnos() {
-		return puestosDeAlumnos;
-	}
-	public void setPuestosDeAlumnos(Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		this.puestosDeAlumnos = puestosDeAlumnos;
-	}
-
 }

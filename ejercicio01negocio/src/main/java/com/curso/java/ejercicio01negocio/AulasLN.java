@@ -1,11 +1,16 @@
 package com.curso.java.ejercicio01negocio;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.curso.java.ejercicio01dao.IAulaDao;
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
@@ -13,14 +18,19 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
+@Service(value = "negocio")
 public class AulasLN implements IAulasLNRRHH {
-
+	
+	@Autowired
+	@Qualifier("interfaz")
 	private IAulaDao aulaDao;
 
-	public AulasLN(IAulaDao dao) {
+	public IAulaDao getAulaDao() {
+		return aulaDao;
+	}
 
-		this.aulaDao = dao;
-
+	public void setAulaDao(IAulaDao aulaDao) {
+		this.aulaDao = aulaDao;
 	}
 
 	public Collection<Aula> getAulas() {

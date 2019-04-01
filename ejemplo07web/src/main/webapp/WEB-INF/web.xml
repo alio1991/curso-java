@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>EjemploServlet</servlet-name>
+  	<display-name>EjemploServlet</display-name>
+  	<description>Este es mi serlet guay, y esto no sirve para nada jaja</description>
+  	<servlet-class>com.curso.java.web.controllers.EjemploServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EjemploServlet2</servlet-name>
+  	<display-name>EjemploServlet2</display-name>
+  	<description>nada de nada</description>
+  	<servlet-class>com.curso.java.web.controller.EjemploServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EjemploServlet</servlet-name>
+  	<url-pattern>/EjemploServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EjemploServlet2</servlet-name>
+  	<url-pattern>/EjemploServlet2</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,6 +1,15 @@
 package com.curso.java.oo.ejercicio01oo.model;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("Alumno")
+@Scope("prototype")
 public class Alumno extends Persona {
+	
+	@Value("true")
+	private Boolean subvencionado;
 	
 	public Alumno() {
 		super();
@@ -10,9 +19,9 @@ public class Alumno extends Persona {
 		super(nombre);
 	}
 
-	private boolean subvencionado;
+	
 
-	public boolean isSubvencionado() {
+	public Boolean isSubvencionado() {
 		return subvencionado;
 	}
 

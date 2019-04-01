@@ -3,9 +3,15 @@ package com.curso.java.ejercicio01dao;
 import java.util.Collection;
 import java.util.List;
 
-import com.curso.java.oo.ejercicio01oo.model.Aula;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+import com.curso.java.oo.ejercicio01oo.model.Aula;
+@Repository
 public class ListDAO implements IAulaDao {
+	@Autowired
+	@Qualifier("listaDeAulas")
 	private List<Aula>aulas;
 	
 	public Collection<Aula> getAulas(){

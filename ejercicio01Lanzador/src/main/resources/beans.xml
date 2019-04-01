@@ -1,103 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean 	id="aulaLN" 
-			class="com.curso.java.ejercicio01negocio.AulasLN" 
-			scope="singleton">
-		<constructor-arg ref="listDAO"/>
-	</bean>
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="listDAO" class="com.curso.java.ejercicio01dao.ListDAO" scope="singleton">
-		<property name="aulas" ref="linkedList"/>
-	</bean>
 	
-	<bean id="mapDAO" class="com.curso.java.ejercicio01dao.MapDAO" scope="singleton">
-		<property name="aulas" ref="hashMap"/>
-	</bean>
+	<context:component-scan base-package="com.curso.java.ejercicio01negocio"/>
+	<context:component-scan base-package="com.curso.java.ejercicio01dao"/>
+	<context:component-scan base-package="com.curso.java.oo.ejercicio01oo.model"/>
 	
-	<bean id="arrayList" class="java.util.ArrayList" scope="singleton"/>
-	<bean id="linkedList" class="java.util.LinkedList" scope="singleton"/>
-	<bean id="treeMap" class="java.util.TreeMap" scope="singleton"/>
-	<bean id="hashMap" class="java.util.HashMap" scope="singleton"/>
+	<bean id="interfaz" class="com.curso.java.ejercicio01dao.ListDAO" scope="singleton"/>
+	<bean id="listaDeAulas" class="java.util.ArrayList" scope="singleton"/>
 	
-<!-- 	<bean 	id="Aula"  -->
-<!-- 			class="com.curso.java.oo.ejercicio01oo.model.Aula" -->
-<!-- 			autowire="byType"> -->
-<!-- 		<property name="nombre" value="Aula1" /> -->
-<!-- 	</bean> -->
-	
- 	<!--  ALUMNOS -->
-<!-- 	<bean id="alumno1" class="com.curso.java.oo.ejercicio01oo.model.Alumno"> -->
-<!-- 		<property name="nombre" value="Alumno1" /> -->
-<!-- 	</bean> -->
-<!-- 	<bean id="alumno2" class="com.curso.java.oo.ejercicio01oo.model.Alumno"> -->
-<!-- 		<property name="nombre" value="Alumno2" /> -->
-<!-- 	</bean> -->
-<!-- 	<bean id="alumno3" class="com.curso.java.oo.ejercicio01oo.model.Alumno"> -->
-<!-- 		<property name="nombre" value="Alumno3" /> -->
-<!-- 	</bean> -->
-<!-- 	<bean id="alumno4" class="com.curso.java.oo.ejercicio01oo.model.Alumno"> -->
-<!-- 		<property name="nombre" value="Alumno4" /> -->
-<!-- 	</bean> -->
-	
- 	<!--  PUESTOS --> 
-<!-- 	<bean id="puestos" class="java.util.HashSet"> -->
-<!-- 		<constructor-arg> -->
-<!-- 			<set> -->
-<!-- 				<ref>puesto1</ref> -->
-<!-- 				<value></value> -->
-<!-- 				<value>puesto3</value> -->
-<!-- 				<value>puesto4</value> -->
-<!-- 			</set> -->
-<!-- 		</constructor-arg> -->
-<!-- 	</bean> -->
-<!-- 	<bean 	id="puesto1"  -->
-<!-- 			class="com.curso.java.oo.ejercicio01oo.model.Alumno" -->
-<!-- 			autowire="byType"> -->
-<!-- 	</bean> -->
-<!-- 	<bean 	id="puesto2"  -->
-<!-- 			class="com.curso.java.oo.ejercicio01oo.model.Alumno" -->
-<!-- 			autowire="byType"> -->
-<!-- 	</bean> -->
-<!-- 	<bean 	id="puesto3"  -->
-<!-- 			class="com.curso.java.oo.ejercicio01oo.model.Alumno" -->
-<!-- 			autowire="byType"> -->
-<!-- 	</bean> -->
-<!-- 	<bean 	id="puesto4"  -->
-<!-- 			class="com.curso.java.oo.ejercicio01oo.model.Alumno" -->
-<!-- 			autowire="byType"> -->
-<!-- 	</bean> -->
-	
- 	<!--  Booleanos --> 
-	
-<!-- 	<bean id="true" class="java.lang.Boolean"> -->
-<!-- 		<constructor-arg value="true"/> -->
-<!-- 	</bean> -->
-<!-- 	<bean id="false" class="java.lang.Boolean"> -->
-<!-- 		<constructor-arg value="false"/> -->
-<!-- 	</bean> -->
-
-<!-- 	<bean id="aula" class="com.curso.java.oo.ejercicio01oo.model.Aula"> -->
-<!-- 		<property name="nombre" value="aula" /> -->
-<!-- 		<property name="proyector" value="true" /> -->
-<!-- 		<property name="pizarra" value="true" /> -->
-<!-- 		<property name="puestoDeAlumnos" value="null" />  -->
-<!-- 		<constructor-arg value="aula" type="String"></constructor-arg>  -->
-<!-- 		<constructor-arg value="true" type="boolean"></constructor-arg>  -->
-<!-- 		<constructor-arg value="true" type="boolean"></constructor-arg>  -->
-<!-- 		<constructor-arg value="null" type="Collection"></constructor-arg>  -->
-<!-- 	</bean> -->
-	
-<!-- 	<bean id="puestoDetrabajo" class="com.curso.java.oo.ejercicio01oo.model.PuestoDetrabajo"> -->
-<!-- 		<property name="nombre" value="aula" /> -->
-<!-- 		<property name="proyector" value="true" /> -->
-<!-- 		<property name="pizarra" value="true" /> -->
-<!-- 		<property name="puestoDeAlumnos" value="null" /> -->
-<!-- 		<constructor-arg value="ordenador" type="true"></constructor-arg>  -->
-<!-- 		<constructor-arg value="true" type="boolean"></constructor-arg>  -->
-	 
-<!-- 	</bean> -->
-	
+	<bean id="hashSet" class="java.util.HashSet" scope="prototype"/>
+	<bean id="hashMap" class="java.util.HashMap" scope="prototype"/>
+<!-- 	<bean id="arrayList" class="java.util.ArrayList" scope="prototype"/> -->
 </beans>

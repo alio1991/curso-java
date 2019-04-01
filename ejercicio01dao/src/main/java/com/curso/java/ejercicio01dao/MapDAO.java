@@ -4,9 +4,13 @@ package com.curso.java.ejercicio01dao;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
+//@Repository
 public class MapDAO implements IAulaDao{
+
 	private Map<String,Aula>aulas;
 	
 	public Collection<Aula> getAulas(){
