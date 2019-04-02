@@ -1,19 +1,12 @@
 package com.curso.java.ejercicio01negocio;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -23,9 +16,10 @@ import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
-
+	
+	
 @Service(value = "negocio")
-public class AulasLN implements IAulasLNRRHH {
+public class AulasLN {
 	
 	@Autowired
 	@Qualifier("interfaz")
@@ -44,7 +38,7 @@ public class AulasLN implements IAulasLNRRHH {
 	}
 
 	
-	public Aula nuevoAula(Aula aula) throws Exception {
+	public Aula nuevoAula(Aula aula){
 		aulaDao.createAula(aula);
 		return aulaDao.getAula(aula.getNombre());
 	}
@@ -117,7 +111,7 @@ public class AulasLN implements IAulasLNRRHH {
 		return listaProfesores;
 	}
 
-	public void asignarAlumnoAAula(String nombreAula, Alumno alumno) {
+	public Boolean asignarAlumnoAAula(String nombreAula, Alumno alumno) {
 
 		Set<PuestoDeTrabajo> puestos = null;
 		Aula aula = aulaDao.getAula(nombreAula);
@@ -128,15 +122,21 @@ public class AulasLN implements IAulasLNRRHH {
 		for (PuestoDeTrabajo p : puestos) {
 			if (p.getPersona() == null) {
 				p.setPersona(alumno);
-				return;
+				return true;
 			}
 		}
+		return false;
 	}
 
-	public void eliminarAula(String nombreAula) {
-
-		aulaDao.deleteAula(nombreAula);
+	public Boolean eliminarAula(String nombreAula) {
+	
+		if(aulaDao.getAula(nombreAula) != null) {
+			aulaDao.deleteAula(nombreAula);
+			return true;
+		}
+		
+		return false;
 
 	}
-
+	
 }
